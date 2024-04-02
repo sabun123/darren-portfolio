@@ -33,8 +33,8 @@ export default function Home() {
     </Link>
   ); 
 
-  const renderProduct = (imgSrc: string, product: string, description: string, urlLink: string, isFlipped: boolean = false): ReactElement => (
-    <div className={`flex ${isFlipped ? 'flex-col md:flex-row-reverse' : 'flex-col md:flex-row'} max-w-5xl w-full justify-between h-72`}>
+  const renderProduct = (imgSrc: string, product: React.ReactNode, description: string, urlLink: string, isFlipped: boolean = false): ReactElement => (
+    <div className={`flex ${isFlipped ? 'flex-col md:flex-row-reverse' : 'flex-col md:flex-row'} max-w-5xl w-full justify-between h-72 gap-x-4`}>
       <Image src={imgSrc} alt="my image" width={496} height={306}/>
       <div className="flex flex-col justify-center gap-4 w-3/4 md:w-96">
         <p className="text-white text-xl font-bold">{product}</p>
@@ -47,8 +47,6 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24" style={{backgroundColor: '#212121'}}>
       <Header />
-
-      {/* make a div that can contain elements vertically aligned and have a gap of 80px between them */}
       <div className="flex flex-col gap-10 md:gap-20 w-10/12 items-center mt-10">
       {renderProfile()}
       {GreenLine()}
@@ -66,7 +64,7 @@ export default function Home() {
         true)}
       {renderProduct(
         `${assetPrefix}/images/Homepage/Homepage_Blockpunk banner.png`,
-        "MerchPunk by BlockPunk",
+        <>MerchPunk <span className="text-sm font-normal">by BlockPunk</span></>,
         "The biggest search engine for all things Anime",
         "/merchpunk",
         )}
