@@ -5,6 +5,9 @@ import { GreenLine } from "./components/greenline";
 import { ReactElement } from "react";
 import Link from "next/link";
 
+const isProd = process.env.NODE_ENV === 'production';
+const assetPrefix = isProd ? '/darren-portfolio' : '';
+
 export default function Home() {
 
   const renderProfile = (): ReactElement => (
@@ -16,7 +19,7 @@ export default function Home() {
         <h2 style={{ color: '#AFF5D7' }} className="text-white text-4xl font-bold mb-3"> based in Singapore.</h2>
         <p className="text-white text-base font-semibold">Design for humans</p>
       </div>
-      <Image src="/images/Homepage/Homepage_dp.png" alt="my image" width={410} height={286} />
+      <Image src={`${assetPrefix}/images/Homepage/Homepage_dp.png`} alt="my image" width={410} height={286} />
     </div>
   );
 
@@ -24,7 +27,7 @@ export default function Home() {
     <Link href={urlLink} className="flex flex-col justify-center gap-2">
       <div className="flex flex-row items-center">
       <p className="text-white text-base font-semibold">Read More</p>
-      <Image src={'/images/Iconography/Arrow icon_24px.png'} alt="right-arrow" width={24} height={24} className={'ml-1'} />
+      <Image src={`${assetPrefix}/images/Iconography/Arrow icon_24px.png`} alt="right-arrow" width={24} height={24} className={'ml-1'} />
       </div>
       {GreenLine('w-28')}
     </Link>
@@ -50,19 +53,19 @@ export default function Home() {
       {renderProfile()}
       {GreenLine()}
       {renderProduct(
-        "/images/Homepage/Homepage_Homage banner.png",
+        `${assetPrefix}/images/Homepage/Homepage_Homage banner.png`,
         "Homage",
         "Holistic health & caregiving services where you are",
         "/homage",
         )}
       {renderProduct(
-        "/images/Homepage/Homepage_M1 banner.png",
+        `${assetPrefix}/images/Homepage/Homepage_M1 banner.png`,
         "MyM1+ App",
         "Digital platform transformation",
         "/mym1",
         true)}
       {renderProduct(
-        "/images/Homepage/Homepage_Blockpunk banner.png",
+        `${assetPrefix}/images/Homepage/Homepage_Blockpunk banner.png`,
         "MerchPunk by BlockPunk",
         "The biggest search engine for all things Anime",
         "/merchpunk",
