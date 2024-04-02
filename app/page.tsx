@@ -45,7 +45,7 @@ export default function Home() {
   );
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24" style={{backgroundColor: '#212121'}}>
+    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-10" style={{backgroundColor: '#212121'}}>
       <Header />
       <div className="flex flex-col gap-10 md:gap-20 w-10/12 items-center mt-10">
       {renderProfile()}

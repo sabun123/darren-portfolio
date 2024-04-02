@@ -5,7 +5,7 @@ import Footer from '../components/footer';
 
 export default function MyM1Page() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24" style={{backgroundColor: '#212121'}}>
+        <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-10" style={{backgroundColor: '#212121'}}>
         <Header />
         
         <Link href="/">
