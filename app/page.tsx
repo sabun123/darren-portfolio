@@ -24,7 +24,7 @@ export default function Home() {
   );
 
   const renderReadMore = (urlLink: string) => (
-    <Link href={urlLink} className="flex flex-col justify-center gap-2">
+    <Link href={urlLink} className="flex flex-col justify-center gap-2 transition-all duration-300 ease-in-out  transform hover:scale-105">
       <div className="flex flex-row items-center">
       <p className="text-white text-base font-semibold">Read More</p>
       <Image src={`${assetPrefix}/images/Iconography/Arrow icon_24px.png`} alt="right-arrow" width={24} height={24} className={'ml-1'} />
