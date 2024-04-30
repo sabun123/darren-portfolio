@@ -176,10 +176,10 @@ export default function HomagePage() {
     };
 
     const renderContinuousImprovement = () => {
-        return <>
-        <div className='flex flex-row gap-8'>
-        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={0} height={0} className='w-[480px] h-auto'/>
-        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={0} height={0} className='w-[480px] h-auto'/>
+        return <div className='flex flex-col gap-10 items-center'>
+        <div className='flex flex-row w-full justify-between'>
+        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
+        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
         </div>
 <TextSection
             title={'Continuous improvement is better than delayed perfection'}
@@ -192,7 +192,7 @@ export default function HomagePage() {
                 </>}
         />
         {GreenLine('w-28')}
-        </>
+        </div>
     };
 
     return (
