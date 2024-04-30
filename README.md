@@ -1,5 +1,8 @@
 # darren-portfolio
+
 Darren's Portfolio Website
+
+Link to view: https://sabun123.github.io/darren-portfolio/homage
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

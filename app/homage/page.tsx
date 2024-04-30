@@ -11,12 +11,14 @@ import { WriggleBlock } from '../components/wriggleblock';
 import BottomNav from '../components/bottomnav';
 import TextSubtitle from '../components/textsubtitle';
 import { GreenLine } from '../components/greenline';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const isProd = process.env.NODE_ENV === 'production';
 const assetPrefix = isProd ? '/darren-portfolio' : '';
 
 export default function HomagePage() {
+
+    const observer = useRef<IntersectionObserver | null>(null);
 
     const renderUnderstandingTheProblem = () => {
         return <>
@@ -36,9 +38,9 @@ export default function HomagePage() {
             <TextSection
                 title={'Complicated onboarding process'}
                 paragraph={<>
-                To book their first care visit, Care Owners (CO) must provide essential details about the Care Recipient (CR), including medical conditions, mobility, disabilities, medications, and home environment. This information is crucial for the smart matching algorithm to find a Care Professional (CP) who meets the CR's care needs for future appointments.
+                To book their first care visit, Care Owners (CO) must provide essential details about the Care Recipient (CR), including medical conditions, mobility, disabilities, medications, and home environment. This information is crucial for the smart matching algorithm to find a Care Professional (CP) who meets the CR&apos;s care needs for future appointments.
                 <br />< br/>
-                COs can choose between a one-time hour-long In-Person Care Assessment (IPCA), where a Homage Care Specialist assesses the CR's home environment and conditions, or a 30-60 minute Self-Care Assessment (Self-CA) to save time. The IPCA results in service recommendations within 1-3 days (depending on the assessment date), while the Self-CA takes 3-5 working days.
+                COs can choose between a one-time hour-long In-Person Care Assessment (IPCA), where a Homage Care Specialist assesses the CR&apos;s home environment and conditions, or a 30-60 minute Self-Care Assessment (Self-CA) to save time. The IPCA results in service recommendations within 1-3 days (depending on the assessment date), while the Self-CA takes 3-5 working days.
                 </>}
             />
             <Image src={`${assetPrefix}/images/Homage/Homage_Old design screens.png`} alt="design screens" width={960} height={330} className='h-auto'/>
@@ -83,9 +85,9 @@ export default function HomagePage() {
         return <>
         <TextSection
             title={'Case 1: “Help me get started! What should I be doing now?”'}
-            paragraph={`After creating their basic user profile, users are often unsure of the next steps. They may wonder, "Do I need to purchase a package? Should I book a service? If so, which service should I select for my loved one?" Therefore, we aim to provide users with clearer guidance on the next steps of actions they can take, using visuals like a progress stepper and app banners. We also encourage them to set up their care plan to receive tailored care recommendations for their loved ones.
-
-            We believe that a guided onboarding experience in the app will provide a sense of presence and assurance to Care Owners. It shows that Homage is committed to assisting our Care Owners every step of the way.`}
+            paragraph={<>After creating their basic user profile, users are often unsure of the next steps. They may wonder, "Do I need to purchase a package? Should I book a service? If so, which service should I select for my loved one?" Therefore, we aim to provide users with clearer guidance on the next steps of actions they can take, using visuals like a progress stepper and app banners. We also encourage them to set up their care plan to receive tailored care recommendations for their loved ones.
+            <br /><br />
+            We believe that a guided onboarding experience in the app will provide a <span style={{color: '#AFF5D7', fontWeight: 'bold'}}>sense of presence and assurance</span> to Care Owners. It shows that Homage is committed to assisting our Care Owners every step of the way.</>}
         />
          <Image src={`${assetPrefix}/images/Homage/Homage_Case 2.png`} alt="case 2" width={960} height={330} className='h-auto'/>
             <TextSubtitle text={'Simplified Self-CA flow'} />
@@ -100,15 +102,13 @@ export default function HomagePage() {
                 paragraph={<>
                 To receive care recommendations and book a service, users must complete nearly 20 fields in the Self-CA flow, including understanding and selecting complex medical terms, and submitting required documentation for review by Care Specialists. Users often lack all necessary information at once, hence by allowing them to save their progress and return after acquiring information would be ideal.
                 <br />< br/>
-                We believe that by simplifying the questions and allowing users to automatically save their inputs, we can provide them with a sense of calmness and remove any unnecessary sense of urgency to complete their assessment.
+                We believe that by simplifying the questions and allowing users to automatically save their inputs, we can provide them with a <span style={{color: '#AFF5D7', fontWeight: 'bold'}}>sense of calmness and remove any unnecessary sense of urgency</span> to complete their assessment.
                 </>}
             />
         </div>
         <WriggleBlock />
         </>
     };
-
-    let observer: IntersectionObserver | null = null;
 
     useEffect(() => {
 
@@ -117,7 +117,7 @@ export default function HomagePage() {
             threshold: 0.5
         };
 
-        observer = new IntersectionObserver(function(entries, observer) {
+        observer.current = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (entry.intersectionRatio > 0) {
                     observer.unobserve(entry.target);
@@ -134,8 +134,8 @@ export default function HomagePage() {
         <div className='flex flex-col gap-8'>
         <video
             ref={(element) => {
-                if (element && observer) {
-                    observer.observe(element);
+                if (element && observer.current) {
+                    observer.current?.observe(element);
                 }
             }}
             loop
@@ -157,7 +157,7 @@ export default function HomagePage() {
             paragraph={<>
             As a large portion of our Care Owners are between 30-70 years old, we aim to provide them with a user-friendly app experience. We minimised the use of colours and adopted a minimal white template to <span style={{color: '#AFF5D7', fontWeight: 'bold'}}>reduce visual clutter and eye strain</span>.
             <br /><br />
-            Over 6 months, we collaborated closely with our software engineers to enhance the app's UI design and resolve bugs. Simultaneously, we developed the Homage Design System, creating reusable components for a consistent design branding, while ensuring accessibility and flexibility.
+            Over 6 months, we collaborated closely with our software engineers to enhance the app&apos;s UI design and resolve bugs. Simultaneously, we developed the Homage Design System, creating reusable components for a consistent design branding, while ensuring accessibility and flexibility.
             <br /><br />
             The feedback has been generally positive, with users finding the revamped app easier to navigate, and the old, daunting Homage blue interface (lol) is now a thing of the past.
             </>}
