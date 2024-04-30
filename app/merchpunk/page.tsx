@@ -21,7 +21,7 @@ export default function MerchPunkPage() {
         company={<>MerchPunk <span className='text-xl font-normal'> by BlockPunk</span></>}
         title="The biggest search engine for all things Anime" 
         subtitle="MerchPunk is the world’s largest Anime search engine and our mission is to help fans find and buy official Japanese merchandise easily and straight from the source."
-        image={<Image src={`${assetPrefix}/images/Merchpunk/Merckpunk_logo.png`} alt="homage logo" width={352} height={107} className='h-28'/>}
+        image={<Image src={`${assetPrefix}/images/Merchpunk/Merckpunk_Logo.png`} alt="homage logo" width={352} height={107} className='h-28'/>}
         badgeTitle={'UX/UI Designer'}
         />
 

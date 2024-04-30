@@ -21,7 +21,7 @@ export default function MyM1Page() {
         company="MyM1+ App" 
         title="Digital platform transformation" 
         subtitle="My M1+ app is a personalised application that manages your M1 services the way you want it to be."
-        image={<Image src={`${assetPrefix}/images/M1/M1_logo.png`} alt="homage logo" width={160} height={160} className='h-40'/>}
+        image={<Image src={`${assetPrefix}/images/M1/M1_Logo.png`} alt="homage logo" width={160} height={160} className='h-40'/>}
         badgeTitle={'Project Lead'}
         />
         <TextSection

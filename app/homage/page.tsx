@@ -178,10 +178,10 @@ export default function HomagePage() {
     const renderContinuousImprovement = () => {
         return <div className='flex flex-col gap-10 items-center'>
         <div className='flex flex-row w-full justify-between'>
-        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
-        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
+            <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
+            <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
         </div>
-<TextSection
+        <TextSection
             title={'Continuous improvement is better than delayed perfection'}
             paragraph={<>
                 In a 3-week pilot, we observed a steady increase in app conversions from qualified leads to actualized leads in 2/3 of the countries (AU had a lower sample size as the business focuses less on the B2C market). More users successfully completed their profile creation and booked an In-Person Care Assessment or completed their Self-Care Assessment.
@@ -203,7 +203,7 @@ export default function HomagePage() {
         company="Homage" 
         title="Holistic health & caregiving services where you are" 
         subtitle="Homage is a personal care solution that combines curated and trained care professionals with smart technologies to manage and provide on-demand holistic home and community-based caregiving to seniors and adults, allowing them to age and recover with grace, control and dignity."
-        image={<Image src={`${assetPrefix}/images/Homage/Homage_logo.png`} alt="homage logo" width={0} height={0} className='w-[310px] h-auto'/>}
+        image={<Image src={`${assetPrefix}/images/Homage/Homage_Logo.png`} alt="homage logo" width={0} height={0} className='w-[310px] h-auto'/>}
         badgeTitle={'Project Lead'}
         />
         <TextSection
