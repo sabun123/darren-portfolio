@@ -191,7 +191,7 @@ export default function HomagePage() {
                 Since mid-2023, with further improvements introduced, we have observed more users completing the onboarding process independently and relying less on our Care Advisory team for support.
                 </>}
         />
-        {GreenLine('w-28')}
+        {GreenLine('w-52')}
         </div>
     };
 

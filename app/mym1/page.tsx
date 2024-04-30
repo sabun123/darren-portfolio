@@ -105,7 +105,7 @@ export default function MyM1Page() {
         <Image src={`${assetPrefix}/images/M1/M1_Consoldiated screens.png`} alt="m1 consolidated" width={0} height={0} className='w-full max-w-[960px] h-auto'/>
         {renderHighFidelity()}
 
-        {GreenLine('w-28')}
+        {GreenLine('w-52')}
 
         <BottomNav
             leftTitle={'Homage'}
