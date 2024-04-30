@@ -85,7 +85,7 @@ export default function HomagePage() {
         return <>
         <TextSection
             title={'Case 1: “Help me get started! What should I be doing now?”'}
-            paragraph={<>After creating their basic user profile, users are often unsure of the next steps. They may wonder, "Do I need to purchase a package? Should I book a service? If so, which service should I select for my loved one?" Therefore, we aim to provide users with clearer guidance on the next steps of actions they can take, using visuals like a progress stepper and app banners. We also encourage them to set up their care plan to receive tailored care recommendations for their loved ones.
+            paragraph={<>After creating their basic user profile, users are often unsure of the next steps. They may wonder, &quot;Do I need to purchase a package? Should I book a service? If so, which service should I select for my loved one?&quot; Therefore, we aim to provide users with clearer guidance on the next steps of actions they can take, using visuals like a progress stepper and app banners. We also encourage them to set up their care plan to receive tailored care recommendations for their loved ones.
             <br /><br />
             We believe that a guided onboarding experience in the app will provide a <span style={{color: '#AFF5D7', fontWeight: 'bold'}}>sense of presence and assurance</span> to Care Owners. It shows that Homage is committed to assisting our Care Owners every step of the way.</>}
         />
