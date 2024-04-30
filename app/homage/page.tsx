@@ -1,7 +1,6 @@
 
 "use client"
 
-import Link from 'next/link';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import ProductHeader from '../components/productheader';
@@ -18,12 +17,12 @@ const assetPrefix = isProd ? '/darren-portfolio' : '';
 
 export default function HomagePage() {
 
-    const observer = useRef<IntersectionObserver | null>(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
 
     const renderUnderstandingTheProblem = () => {
         return <>
         <div className='flex flex-row justify-between max-w-5xl w-full items-center gap-4'>
-        <Image src={`${assetPrefix}/images/Homage/Homage_Pie chart.png`} alt="chart logo" width={520} height={330} className='h-auto'/>
+        <Image src={`${assetPrefix}/images/Homage/Homage_Pie chart.png`} alt="chart logo" width={0} height={0} className='w-[520px] h-auto'/>
         <TextSection
             title={'Understanding the problem'}
             paragraph={<>Since January 2022, most of our leads have been coming from channels such as phone calls and web forms, with only around <span style={{color: '#AFF5D7', fontWeight: 'bold'}}>30% of qualified leads</span> originating from self-serve channels (Homage App). This situation puts a high strain on operations, as it is not scalable and could potentially increase the drop-off rate if Homage is slow to respond to customers.</>}
@@ -43,7 +42,7 @@ export default function HomagePage() {
                 COs can choose between a one-time hour-long In-Person Care Assessment (IPCA), where a Homage Care Specialist assesses the CR&apos;s home environment and conditions, or a 30-60 minute Self-Care Assessment (Self-CA) to save time. The IPCA results in service recommendations within 1-3 days (depending on the assessment date), while the Self-CA takes 3-5 working days.
                 </>}
             />
-            <Image src={`${assetPrefix}/images/Homage/Homage_Old design screens.png`} alt="design screens" width={960} height={330} className='h-auto'/>
+            <Image src={`${assetPrefix}/images/Homage/Homage_Old design screens.png`} alt="design screens" width={0} height={0} className='w-[960px] h-auto'/>
             <TextSubtitle text={'Previous onboarding flow design screens'} />
             <TextSection
                 title={''}
@@ -61,9 +60,9 @@ export default function HomagePage() {
                 title={'Listening with the intent to understand'}
                 paragraph={'We conducted a series of user interviews and usability testing sessions with our in-house Care Specialists, as well as Care Owners/Recipients from Singapore, Malaysia, and Australia. The goal was to understand the challenges they face when creating their profile and booking their first visit. We then consolidated these findings and grouped them into themes and categories through affinity mapping.'}
             />
-            <Image src={`${assetPrefix}/images/Homage/Homage_Interviews.png`} alt="interviews" width={960} height={330} className='h-auto'/>
+            <Image src={`${assetPrefix}/images/Homage/Homage_Interviews.png`} alt="interviews" width={0} height={0} className='w-[960px] h-auto'/>
             <TextSubtitle text={'Interview & usability testing sessions conducted with Care Owners and in-house Care Specialists'} />
-            <Image src={`${assetPrefix}/images/Homage/Homage_Affinity mapping.png`} alt="affinity mapping" width={960} height={330} className='h-auto'/>
+            <Image src={`${assetPrefix}/images/Homage/Homage_Affinity mapping.png`} alt="affinity mapping" width={0} height={0} className='w-[960px] h-auto'/>
             <TextSubtitle text={'Affinity mapping of findings'} />   
         </div>
         <WriggleBlock />
@@ -76,7 +75,7 @@ export default function HomagePage() {
             title={'So... what were the problems?'}
             paragraph={'We identified a series of issues, ranging from UX/UI issues to pesky bugs that needed fixing, during our analysis. We then selected a few themes to brainstorm solutions. After 3 months of competitive analysis and design refinement, we developed proper solutions to address the issues and capitalize on opportunities for improvement.'}
         />
-         <Image src={`${assetPrefix}/images/Homage/Homage_Case 1.png`} alt="case 1" width={960} height={330} className='h-auto'/>
+         <Image src={`${assetPrefix}/images/Homage/Homage_Case 1.png`} alt="case 1" width={0} height={0} className='w-[960px] h-auto'/>
             <TextSubtitle text={'Guided onboarding screens'} />
         </>
     };
@@ -89,7 +88,7 @@ export default function HomagePage() {
             <br /><br />
             We believe that a guided onboarding experience in the app will provide a <span style={{color: '#AFF5D7', fontWeight: 'bold'}}>sense of presence and assurance</span> to Care Owners. It shows that Homage is committed to assisting our Care Owners every step of the way.</>}
         />
-         <Image src={`${assetPrefix}/images/Homage/Homage_Case 2.png`} alt="case 2" width={960} height={330} className='h-auto'/>
+         <Image src={`${assetPrefix}/images/Homage/Homage_Case 2.png`} alt="case 2" width={0} height={0} className='w-[960px] h-auto'/>
             <TextSubtitle text={'Simplified Self-CA flow'} />
         </>
     };
@@ -110,22 +109,34 @@ export default function HomagePage() {
         </>
     };
 
+    const callbackFunction = (entries : IntersectionObserverEntry[], observer : IntersectionObserver) => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                observer.unobserve(entry.target);
+                const videoElement = entry.target as HTMLVideoElement;
+                if (videoElement.paused) {
+                    videoElement.play();
+                }
+            }
+        });
+      };
+
+
     useEffect(() => {
 
         const options = {
             rootMargin: '0px',
             threshold: 0.5
         };
+        
+        const observer = new IntersectionObserver(callbackFunction, options);
+        
+    if (videoRef.current) observer.observe(videoRef?.current);
 
-        observer.current = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.intersectionRatio > 0) {
-                    observer.unobserve(entry.target);
-                    entry.target.play();
-                }
-            });
-        }, options);
-    }, []);
+    return () => {
+      if (videoRef.current) observer.unobserve(videoRef?.current);
+    };
+    }, [videoRef]);
 
     // create a div that LOADS and plays an .mp4 file which is in ${assetPrefix}/images/Homage/Homage_demo clip.mp4
     const renderDemoClip = () => {
@@ -133,11 +144,7 @@ export default function HomagePage() {
         return <>
         <div className='flex flex-col gap-8'>
         <video
-            ref={(element) => {
-                if (element && observer.current) {
-                    observer.current?.observe(element);
-                }
-            }}
+            ref={videoRef}
             loop
             muted
             autoPlay
@@ -171,8 +178,8 @@ export default function HomagePage() {
     const renderContinuousImprovement = () => {
         return <>
         <div className='flex flex-row gap-8'>
-        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={480} height={330} className='h-auto'/>
-        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={480} height={330} className='h-auto'/>
+        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={0} height={0} className='w-[480px] h-auto'/>
+        <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={0} height={0} className='w-[480px] h-auto'/>
         </div>
 <TextSection
             title={'Continuous improvement is better than delayed perfection'}
@@ -196,7 +203,7 @@ export default function HomagePage() {
         company="Homage" 
         title="Holistic health & caregiving services where you are" 
         subtitle="Homage is a personal care solution that combines curated and trained care professionals with smart technologies to manage and provide on-demand holistic home and community-based caregiving to seniors and adults, allowing them to age and recover with grace, control and dignity."
-        image={<Image src={`${assetPrefix}/images/Homage/Homage_logo.png`} alt="homage logo" width={310} height={79} className='h-20'/>}
+        image={<Image src={`${assetPrefix}/images/Homage/Homage_logo.png`} alt="homage logo" width={0} height={0} className='w-[310px] h-auto'/>}
         badgeTitle={'Project Lead'}
         />
         <TextSection
@@ -206,8 +213,7 @@ export default function HomagePage() {
             At Homage, we aim to simplify this care-sourcing process through the Homage App, where caregivers can self-manage and onboard the app, then book care services for their loved ones.`}
         />
         <WriggleBlock />
-{renderUnderstandingTheProblem()}
-
+        {renderUnderstandingTheProblem()}
 
         {renderComplicatedOnboardingProcess()}
         {renderListeningWithTheIntentToUnderstand()}
@@ -226,8 +232,6 @@ export default function HomagePage() {
         />
         </div>
 
-        
-       
         <Footer />
     </main>
     );
