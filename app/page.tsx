@@ -4,6 +4,7 @@ import Header from "./components/header";
 import { GreenLine } from "./components/greenline";
 import { ReactElement } from "react";
 import Link from "next/link";
+import ImageWithFadeInAnimation from "./components/imagewithfadeinanimation";
 
 const isProd = process.env.NODE_ENV === 'production';
 const assetPrefix = isProd ? '/darren-portfolio' : '';
@@ -19,7 +20,13 @@ export default function Home() {
         <h2 className="text-white text-[28px] md:text-4xl font-bold mb-3"> based in Singapore.</h2>
         <p className="text-white text-base font-semibold">Design for humans</p>
       </div>
-      <Image src={`${assetPrefix}/images/Homepage/Homepage_dp.png`} alt="my image" width={0} height={0} className="w-screen overflow-x-visible md:w-[410px] h-auto"/>
+      <ImageWithFadeInAnimation
+        src={`${assetPrefix}/images/Homepage/Homepage_dp.png`}
+        alt="my image"
+        width={0}
+        height={0}
+        className="w-screen overflow-x-visible md:w-[410px] h-auto transition-opacity duration-500 ease-in "
+      />
     </div>
   );
 

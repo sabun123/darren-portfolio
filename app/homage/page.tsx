@@ -131,11 +131,11 @@ export default function HomagePage() {
         
         const observer = new IntersectionObserver(callbackFunction, options);
         
-    if (videoRef.current) observer.observe(videoRef?.current);
+        if (videoRef.current) observer.observe(videoRef?.current);
 
-    return () => {
-      if (videoRef.current) observer.unobserve(videoRef?.current);
-    };
+        return () => {
+        if (videoRef.current) observer.unobserve(videoRef?.current);
+        };
     }, [videoRef]);
 
     // create a div that LOADS and plays an .mp4 file which is in ${assetPrefix}/images/Homage/Homage_demo clip.mp4
@@ -177,9 +177,9 @@ export default function HomagePage() {
 
     const renderContinuousImprovement = () => {
         return <div className='flex flex-col gap-10 items-center'>
-        <div className='flex flex-row w-full justify-between'>
-            <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
-            <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={0} height={0} className='w-1/2 max-w-[460px] h-auto'/>
+        <div className='flex flex-col md:flex-row w-full justify-between gap-4 md:gap-0'>
+            <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 1.png`} alt="diagram 1" width={0} height={0} className='w-full md:w-1/2 max-w-[460px] h-auto'/>
+            <Image src={`${assetPrefix}/images/Homage/Homage_Chart diagram 2.png`} alt="diagram 2" width={0} height={0} className='w-full md:w-1/2 max-w-[460px] h-auto'/>
         </div>
         <TextSection
             title={'Continuous improvement is better than delayed perfection'}
@@ -191,19 +191,22 @@ export default function HomagePage() {
                 Since mid-2023, with further improvements introduced, we have observed more users completing the onboarding process independently and relying less on our Care Advisory team for support.
                 </>}
         />
-        {GreenLine('w-52')}
+        {GreenLine('w-28 md:w-52')}
         </div>
     };
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-10" style={{backgroundColor: '#212121'}}>
         <Header />
-        <div className='flex flex-col gap-y-[100px] w-10/12 items-center mt-10'>
+        <div className='flex flex-col gap-10 md:gap-y-[100px] w-full md:w-10/12 items-center mt-10'>
         <ProductHeader 
         company="Homage" 
         title="Holistic health & caregiving services where you are" 
         subtitle="Homage is a personal care solution that combines curated and trained care professionals with smart technologies to manage and provide on-demand holistic home and community-based caregiving to seniors and adults, allowing them to age and recover with grace, control and dignity."
-        image={<Image src={`${assetPrefix}/images/Homage/Homage_Logo.png`} alt="homage logo" width={0} height={0} className='w-[310px] h-auto'/>}
+        image={<>
+        <Image src={`${assetPrefix}/images/Homage/Homage_Logo.png`} alt="homage logo" width={0} height={0} className='w-[310px] h-auto hidden md:block'/>
+        <Image src={`${assetPrefix}/images/Homage/Homage_Logo_Mobile.png`} alt="chart logo" width={0} height={0} className='w-[32px] h-auto block md:hidden'/>
+        </>}
         badgeTitle={'Project Lead'}
         />
         <TextSection
@@ -224,8 +227,8 @@ export default function HomagePage() {
         {renderContinuousImprovement()}
 
         <BottomNav
-            leftTitle={<>MerchPunk
-                <span className='text-sm font-normal'>by BlockPunk</span></>}
+            leftTitle={<div className='flex flex-col md:flex-row'>MerchPunk
+                <span className='text-sm font-normal'>by BlockPunk</span></div>}
             leftLink={'/merchpunk'}
             rightTitle={'MyM1+ App'}
             rightLink={'/mym1'}

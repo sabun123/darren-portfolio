@@ -19,14 +19,14 @@ export default function BottomNav(props: any) {
     } = props;
 
     return (
-        <div className="flex flex-row w-full items-center justify-between px-14">
-            <Link href={leftLink} className="flex flex-row items-center gap-1 text-xl font-bold">
-            <Image src={`${assetPrefix}/images/Iconography/Arrow icon_32px.png`} alt="left-arrow" width={32} height={32} className={'h-8'} />
+        <div className="flex flex-row w-full items-center justify-between px-0 md:px-14">
+            <Link href={leftLink} className="flex flex-row items-center gap- text-lg md:text-xl font-bold">
+            <Image src={`${assetPrefix}/images/Iconography/Arrow icon_32px.png`} alt="left-arrow" width={0} height={0} className={'w-6 md:w-8 h-auto'} />
                 {leftTitle}
             </Link>
-            <Link href={rightLink} className="flex flex-row items-center gap-1 text-xl font-bold">
+            <Link href={rightLink} className="flex flex-row items-center gap-1 text-lg md:text-xl font-bold">
                 {rightTitle}
-                <Image src={`${assetPrefix}/images/Iconography/Arrow icon_24px.png`} alt="right arrow" width={32} height={32} className='h-8'/>
+                <Image src={`${assetPrefix}/images/Iconography/Arrow icon_24px.png`} alt="right arrow" width={0} height={0} className=' w-6 md:w-8h-auto'/>
             </Link>
         </div>
     );

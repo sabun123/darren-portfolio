@@ -84,7 +84,7 @@ export default function MerchPunkPage() {
         <Image src={`${assetPrefix}/images/Merchpunk/Merchpunk_Consolidated screens.png`} alt="merchpunk consolidated" width={0} height={0} className='w-full max-w-[960px] h-auto'/>
         {renderOurMVP()}
 
-        {GreenLine('w-52')}
+        {GreenLine('w-28 md:w-52')}
 
         <BottomNav
             leftTitle={'MyM1+ App'}

@@ -10,8 +10,8 @@ export default function Badge(props: any) {
     } = props;
 
     return (
-        <div className={`flex flex-col px-2.5 py-0.5 rounded-md`} style={{backgroundColor: '#6BB394'}}>
-            <p className="text-white text-base">{title}</p>
+        <div className={`flex items-center px-2 md:px-2.5 py-0.5 rounded-md mr-auto md:mr-0`} style={{backgroundColor: '#6BB394'}}>
+            <p className="text-white text-xs md:text-base">{title}</p>
         </div>
     );
 }
