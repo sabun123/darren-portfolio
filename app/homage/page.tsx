@@ -21,7 +21,7 @@ export default function HomagePage() {
 
     const renderUnderstandingTheProblem = () => {
         return <>
-        <div className='flex flex-row justify-between max-w-5xl w-full items-center gap-4'>
+        <div className='flex flex-col md:flex-row justify-between max-w-5xl w-full items-center gap-4'>
         <Image src={`${assetPrefix}/images/Homage/Homage_Pie chart.png`} alt="chart logo" width={0} height={0} className='w-[520px] h-auto'/>
         <TextSection
             title={'Understanding the problem'}
@@ -33,7 +33,7 @@ export default function HomagePage() {
 
     const renderComplicatedOnboardingProcess = () => {
         return <>
-        <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-6 md:gap-8'>
             <TextSection
                 title={'Complicated onboarding process'}
                 paragraph={<>
@@ -157,7 +157,7 @@ export default function HomagePage() {
     
     const renderKeepingThingsClean = () => {
         return <>
-        <div className='flex flex-row-reverse justify-between max-w-5xl w-full items-center gap-4'>
+        <div className='flex flex-col md:flex-row-reverse justify-between max-w-5xl w-full items-center gap-4'>
         {renderDemoClip()}
         <TextSection
             title={'Keeping things clean, clear and concise'}
@@ -227,8 +227,8 @@ export default function HomagePage() {
         {renderContinuousImprovement()}
 
         <BottomNav
-            leftTitle={<div className='flex flex-col md:flex-row'>MerchPunk
-                <span className='text-sm font-normal'>by BlockPunk</span></div>}
+            leftTitle={<div className='flex flex-col'>MerchPunk
+            <span className='text-xs md:text-sm font-normal'>by BlockPunk</span></div>}
             leftLink={'/merchpunk'}
             rightTitle={'MyM1+ App'}
             rightLink={'/mym1'}

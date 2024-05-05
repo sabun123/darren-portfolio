@@ -32,7 +32,7 @@ export default function MerchPunkPage() {
 
   const renderBounceRateReduction = () => {
     return <>
-    <div className='flex flex-row-reverse justify-between max-w-5xl w-full items-center gap-4'>
+    <div className='flex flex-col-reverse md:flex-row-reverse justify-between max-w-5xl w-full items-center gap-4'>
     <Image src={`${assetPrefix}/images/Merchpunk/Merchpunk_Bounce rate.png`} alt="discovery workshop" width={0} height={0} className='w-[440px] h-auto'/>
     <TextSection
         title={'Bounce rate reduction'}
@@ -45,7 +45,7 @@ export default function MerchPunkPage() {
 
   const renderOurMVP = () => {
     return <>
-      <div className='flex flex-row-reverse justify-between max-w-5xl w-full items-center gap-4'>
+      <div className='flex flex-col-reverse md:flex-row-reverse justify-between max-w-5xl w-full items-center gap-4'>
       <Image src={`${assetPrefix}/images/Merchpunk/Merchpunk_Blockchain NFT.png`} alt="discovery workshop" width={0} height={0} className='w-[440px] h-auto'/>
       <TextSection
           title={'Our MVP: Blockchain NFC Tags'}
@@ -60,16 +60,16 @@ export default function MerchPunkPage() {
     <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-10" style={{backgroundColor: '#212121'}}>
       <Header />
       
-      <div className='flex flex-col gap-y-[100px] w-10/12 items-center mt-10'>
+      <div className='flex flex-col gap-10 md:gap-y-[100px] w-full md:w-10/12 items-center mt-10'>
         <ProductHeader 
-        company={<>MerchPunk <span className='text-xl font-normal'> by BlockPunk</span></>}
+        company={<>MerchPunk <span className='text-sm md:text-xl font-normal'> by BlockPunk</span></>}
         title="The biggest search engine for all things Anime" 
         subtitle="MerchPunk is the world’s largest Anime search engine and our mission is to help fans find and buy official Japanese merchandise easily and straight from the source."
-        image={<Image src={`${assetPrefix}/images/Merchpunk/Merckpunk_Logo.png`} alt="homage logo" width={352} height={107} className='h-28'/>}
+        image={<Image src={`${assetPrefix}/images/Merchpunk/Merckpunk_Logo.png`} alt="merchpunk logo" width={0} height={0} className='w-[352px] h-auto hidden md:block'/>}
         badgeTitle={'UX/UI Designer'}
         />
 
-        <div className='flex flex-row justify-between max-w-5xl w-full items-center gap-10'>
+        <div className='flex flex-col md:flex-row justify-between max-w-5xl w-full items-center gap-10'>
         <Image src={`${assetPrefix}/images/Merchpunk/Merchpunk_Competitive analysis.png`} alt="chart logo" width={520} height={330} className='h-auto'/>
         <TextSection
             title={'Competitive analysis'}
