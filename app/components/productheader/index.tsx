@@ -31,7 +31,7 @@ export default function ProductHeader(props: any) {
     };
 
     const renderDesktopHeader = () => {
-        return <div className="hidden md:block w-full">
+        return <div className="hidden md:flex w-full max-w-5xl">
         <div className={`flex flex-col max-w-5xl w-full justify-between gap-4`}>
             <div className="flex flex-row-reverse justify-between items-center">
                 {image}

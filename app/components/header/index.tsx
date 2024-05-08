@@ -43,7 +43,7 @@ export default function Header() {
 
     if(isOnHome){
         return <>
-            <header className=" w-full flex flex-col md:flex-row items-start md:items-center px-8 md:px-0">
+            <header className="w-full flex flex-col md:flex-row items-start md:items-center px-8 md:px-0">
                 {renderDesktopHeader()}
             </header>
         </>
@@ -54,7 +54,7 @@ export default function Header() {
             <header className="block md:hidden w-full flex flex-row items-start px-0 py-0">
                 {renderMobileHeader()}
             </header>
-            <header className="hidden mb:block w-full flex flex-col md:flex-row items-start md:items-center px-8 md:px-0">
+            <header className="hidden md:flex w-full flex flex-row items-start md:items-center px-8 md:px-0">
                 {renderDesktopHeader()}
             </header>
         </>
